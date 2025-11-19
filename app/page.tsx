@@ -64,16 +64,15 @@ export default function Home() {
 
                     <div className="max-w-md mx-auto space-y-6 lg:w-1/2 lg:mx-0">
                         <h2 className="text-lg sm:text-xl md:text-2xl lg:text-2xl font-medium leading-snug tracking-wide">
-                            Hey everyone, My name is Kristina, and this is my Soft Lock-In Era.
+                            Hey everyone, My name is Kristina, and this is my Soft Lock-In Era
                         </h2>
 
                         <div className="w-16 h-[1px] bg-goldBrand mx-auto"></div>
 
                         <p className="text-base sm:text-lg md:text-lg lg:text-lg leading-relaxed text-greenBrand/90">
-                            For more than a decade I was always in motion — achieving, chasing,
-                            rebuilding — without ever stopping to ask why. I reached most of my
-                            goals, but somewhere along the way I burned out, lost direction, and
-                            started living in a fog.
+                            For over a decade, I lived on autopilot — always achieving, chasing, rebuilding —
+                            without ever stopping to ask why. I reached most of my goals, but somewhere in
+                            the process, I burned out. I lost direction. I lost myself.
                         </p>
 
                         <a href="about" className="btn-brand mt-4 inline-block">
