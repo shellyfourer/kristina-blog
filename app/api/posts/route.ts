@@ -10,33 +10,35 @@ export async function GET() {
     const { data } = await supabase
     .from('posts')
     .select('*')
+    .eq("status", "published")
     .order ('publish_at', { ascending: false });
-    return Response.json(data);
+    return NextResponse.json(data);
 }
 
 export async function POST(request: Request) {
-    const { title, content, image_url, status, publish_at} = await request.json();
+    const { title, content, image_url, status, publish_at, slug} = await request.json();
     const { data } = await supabase
     .from('posts')
-    .insert({ title, content, image_url, status, publish_at });
-    return Response.json(data);
+    .insert({ title, content, image_url, status, publish_at, slug });
+    return NextResponse.json(data);
 }
 
 export async function PUT(request: Request) {
-    const { id, title, content, image_url } = await request.json();
+    const { post_id, title, content, image_url, status, publish_at, slug } =
+    await request.json();
     const { data } = await supabase
     .from('posts')
-    .update({ title, content, image_url })
-    .eq('id', id);
-    return Response.json(data);
+    .update({ title, content, image_url, status, publish_at, slug })
+    .eq('post_id', post_id);
+    return NextResponse.json(data);
 }
 
 export async function DELETE(request: Request) {
-    const { id } = await request.json();
+    const { post_id } = await request.json();
     const { data } = await supabase
     .from('posts')
     .delete()
-    .eq('id', id);
-    return Response.json(data);
+    .eq('post_id', post_id);
+    return NextResponse.json(data);
 }
 
