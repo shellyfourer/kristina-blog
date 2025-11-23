@@ -27,8 +27,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </a>
 
                 <nav className="flex gap-6 sm:gap-8 text-[14px] sm:text-[15px] tracking-wide">
-                    <a href="about" className="hover:underline underline-offset-4 transition-all duration-200">ABOUT</a>
-                    <a href="blog" className="hover:underline underline-offset-4 transition-all duration-200">BLOG</a>
+                    <a href="/about" className="hover:underline underline-offset-4 transition-all duration-200">ABOUT</a>
+                    <a href="/blog" className="hover:underline underline-offset-4 transition-all duration-200">BLOG</a>
                 </nav>
             </div>
 
@@ -46,7 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     </a>
                 </div>
 
-                <a href="contact" className="btn-brand text-[13px] sm:text-[15px]">
+                <a href="/contact" className="btn-brand text-[13px] sm:text-[15px]">
                     CONTACT
                 </a>
             </div>
@@ -56,7 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
 
         {/* FOOTER */}
-        <footer className="border border-greenBrand/10 w-full py-6 px-8 text-center bg-beige text-muted mt-24">
+        <footer className="border border-greenBrand/10 w-full py-6 px-8 text-center bg-beige text-muted ">
             <p className="text-sm">&copy; 2025 Kristina Fourer — All rights reserved.</p>
         </footer>
         </body>
