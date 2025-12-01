@@ -14,7 +14,7 @@ export default function Newsletter() {
                 <div
                     className="flex whitespace-nowrap animate-marquee text-greenBrand font-noto font-semibold tracking-wider text-base sm:text-xl group-hover:text-goldBrand transition-colors duration-300">
                     {Array(12)
-                        .fill("JOIN THE NEWSLETTER")
+                        .fill("JOIN THE NEWSLETTER ") /*add more texts*/
                         .map((text, i) => (
                             <span key={i} className="mx-8">
                                 {text}

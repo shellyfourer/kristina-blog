@@ -64,15 +64,14 @@ export default function Home() {
 
                     <div className="max-w-md mx-auto space-y-6 lg:w-1/2 lg:mx-0">
                         <h2 className="text-lg sm:text-xl md:text-2xl lg:text-2xl font-medium leading-snug tracking-wide">
-                            Hey everyone, My name is Kristina, and this is my Soft Lock-In Era
+                            Hi, I’m Kristina
                         </h2>
 
                         <div className="w-16 h-[1px] bg-goldBrand mx-auto"></div>
 
                         <p className="text-base sm:text-lg md:text-lg lg:text-lg leading-relaxed text-greenBrand/90">
-                            For over a decade, I lived on autopilot — always achieving, chasing, rebuilding —
-                            without ever stopping to ask why. I reached most of my goals, but somewhere in
-                            the process, I burned out. I lost direction. I lost myself.
+                            a London-based women’s health and wellness coach balancing a full-time corporate career while
+                            rebuilding my life from the inside out… one habit, one routine, and one sarcastic comment at a time.
                         </p>
 
                         <a href="about" className="btn-brand mt-4 inline-block">
@@ -83,7 +82,7 @@ export default function Home() {
                 </div>
             </section>
             <Newsletter/>
-            {/* LATEST SECTION */}
+            {/* LATEST SECTION
             <section className="bg-beige text-greenBrand font-noto px-6 py-12 sm:py-16 lg:py-20 text-center">
                 <div className="max-w-6xl mx-auto">
 
@@ -144,7 +143,7 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <Newsletter/>
+            <Newsletter/> */}
             {/* CONTACT SECTION */}
             <section className="text-center px-6 py-12 lg:py-20 bg-beige text-greenBrand font-noto">
                 <h2 className="text-2xl font-semibold tracking-wide sm:text-3xl lg:text-4xl">LET'S CONNECT</h2>

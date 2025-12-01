@@ -11,26 +11,23 @@ export default function AboutPage() {
                     {/* TEXT LEFT */}
                     <div className="lg:w-1/2 space-y-6 text-center lg:text-center">
                         <h2 className="text-lg sm:text-xl md:text-2xl lg:text-2xl font-medium leading-snug tracking-wide">
-                            Hey everyone, My name is Kristina, and this is my Soft Lock-In Era
+                            Hi, I’m Kristina
                         </h2>
 
                         <div className="w-16 h-[1px] bg-goldBrand mx-auto"></div>
 
                         <p className="text-base sm:text-lg md:text-lg lg:text-lg leading-relaxed">
 
-                            For over a decade, I lived on autopilot — always achieving, chasing,
-                            rebuilding — without ever stopping to ask why. I reached most of my
-                            goals, but somewhere in the process, I burned out. I lost direction.
-                            I lost myself.
+                            a London-based women’s health and wellness coach balancing a full-time corporate career while
+                            rebuilding my life from the inside out… one habit, one routine, and one sarcastic comment at a time.
                         </p>
 
                         <div className="w-16 h-[1px] bg-goldBrand mx-auto"></div>
 
                         <p className="text-base sm:text-lg md:text-lg lg:text-lg leading-relaxed">
-                            A year ago, I was diagnosed with ADHD and PCOS. That became my breaking
-                            point — the moment everything that once defined me disappeared: the discipline,
-                            the spark, the drive, the joy. I took a work hiatus, uprooted my life, and
-                            slipped into a quiet kind of burnout — functioning, but not living.
+                            My rebuild started when life fell apart for “character development” reasons. My
+                            structure disappeared, my joy went on holiday without me, and I suddenly realised
+                            I needed to rebuild everything — my mind, my body, my routines, and my sense of self.
                         </p>
                     </div>
 
@@ -53,43 +50,23 @@ export default function AboutPage() {
                     {/* TEXT RIGHT */}
                     <div className="lg:w-1/2 space-y-6 text-center lg:text-center">
                         <h2 className="text-lg sm:text-xl md:text-2xl lg:text-2xl font-medium leading-snug tracking-wide">
-                            ✨Now, I’m rebuilding from the inside out✨
+                            ✨So I created The Soft Lock-In✨
                         </h2>
 
-                        <p className="font-medium sm:text-lg md:text-lg lg:text-lg leading-relaxed">
-                            Welcome to The Soft Lock-In — my quiet rebuild era
+                        <div className="w-16 h-[1px] bg-goldBrand mx-auto"></div>
+
+                        <p className="text-base sm:text-lg md:text-lg lg:text-lg leading-relaxed">
+                            my softer, structured, slightly chaotic-but-intentional approach to getting your life together
+                            without burning out (again).
                         </p>
 
                         <div className="w-16 h-[1px] bg-goldBrand mx-auto"></div>
 
-                        <p className="text-base font-medium sm:text-lg md:text-lg lg:text-lg leading-relaxed text-left">
-                            This space is about:
+                        <p className="text-base sm:text-lg md:text-lg lg:text-lg leading-relaxed">
+                            This is where I share the fitness habits I’m rebuilding, the
+                            hormone-supportive nutrition I’m learning, and the mental health work helping me stay sane
+                            while juggling corporate life and personal growth.
                         </p>
-
-                        {/* HEART BULLET POINTS */}
-                        <ul className="space-y-3 text-base sm:text-lg md:text-lg lg:text-lg leading-relaxed mx-auto w-fit text-left">
-                            <li className="flex items-start gap-2">
-                                <span>💚</span>
-                                <span>Fitness – movement, training, nutrition, discipline</span>
-                            </li>
-
-                            <li className="flex items-start gap-2">
-                                <span>💚</span>
-                                <span>Beauty – skincare, fashion, maintenance routines</span>
-                            </li>
-
-                            <li className="flex items-start gap-2">
-                                <span>💚</span>
-                                <span>
-                        Healing – nervous system regulation, therapy, peace, emotional balance, rediscovering joy
-                    </span>
-                            </li>
-
-                            <li className="flex items-start gap-2">
-                                <span>💚</span>
-                                <span>Work – focus, structure, consistency</span>
-                            </li>
-                        </ul>
                     </div>
 
                     {/* IMAGE LEFT */}
@@ -113,31 +90,23 @@ export default function AboutPage() {
 
 
                         <p className="text-base sm:text-lg md:text-lg lg:text-lg leading-relaxed">
-                            It’s for those of us learning to choose discipline without pressure,
-                            growth without chaos, and healing without fear. It’s about managing
-                            ADHD and PCOS, breaking out of survival mode, and creating structure
-                            that actually sustains peace and progress.
-                        </p>
-
-                        <div className="w-16 h-[1px] bg-goldBrand mx-auto"></div>
-
-                        <p className="text-base font-medium sm:text-lg md:text-lg lg:text-lg leading-relaxed">
-                            Because here, we follow the plan — not the mood.
+                            If you’re tired of restarting, trying to feel like yourself again, or simply
+                            here for the entertainment value of watching someone piece their life together
+                            with discipline, therapy, and dark humour… welcome. You’re in the right place.
+                            And if my journey helps even one person feel less lost or more hopeful —
+                            then it’s already worth it.
                         </p>
 
                         <div className="w-16 h-[1px] bg-goldBrand mx-auto"></div>
 
                         <p className="text-base sm:text-lg md:text-lg lg:text-lg leading-relaxed">
-                            TIf you’ve ever felt lost, burnt out, or like you’re just existing
-                            despite “doing everything right,” this space is for you. The Soft
-                            Lock-In is about rebuilding identity, discipline, and confidence —
-                            one grounded, consistent day at a time.
+                            Around here, motivation only shows up once a month (like rent), so we follow the plan — not the mood.
                         </p>
 
                         <div className="w-16 h-[1px] bg-goldBrand mx-auto"></div>
 
                         <p className="text-base font-medium sm:text-lg md:text-lg lg:text-lg leading-relaxed">
-                            Subscribe, lock in, and rebuild with me.
+                            Welcome to my rebuild era. Let’s do this together.
                         </p>
                     </div>
 

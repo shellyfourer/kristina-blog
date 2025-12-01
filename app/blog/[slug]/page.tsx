@@ -27,13 +27,16 @@ export default async function BlogPostPage(context: { params: Promise<{ slug: st
             <article className="px-6 py-12 max-w-6xl mx-auto space-y-20">
 
                 {/* TITLE */}
-                <h1 className="text-3xl sm:text-4xl font-bold text-center tracking-tight">
+                <h1 className="text-3xl sm:text-4xl font-medium text-center tracking-tight">
                     {post.title}
                 </h1>
+
+                <div className="w-16 h-[1px] bg-goldBrand mx-auto"></div>
 
                 {/* DATE */}
                 {post.publish_at && (
                     <p className="text-greenBrand/60 text-center text-sm">
+                        Kristina Fourer • Published on {" "}
                         {new Date(post.publish_at).toLocaleDateString("en-US")}
                     </p>
                 )}
@@ -58,21 +61,23 @@ export default async function BlogPostPage(context: { params: Promise<{ slug: st
 
                                         {/* Block title */}
                                         {block.title && (
-                                            <h2 className="text-lg sm:text-xl md:text-2xl font-medium leading-snug tracking-wide">
+                                            <h2 className="text-lg sm:text-xl md:text-2xl font-medium leading-snug tracking-wide text-center">
                                                 {block.title}
                                             </h2>
                                         )}
+                                        <div className="w-16 h-[1px] bg-goldBrand mx-auto"></div>
 
                                         {/* Paragraphs */}
                                         {Array.isArray(block.text) &&
                                             block.text.map((p: string, i: number) => (
                                                 <p
                                                     key={i}
-                                                    className="text-base sm:text-lg md:text-lg leading-relaxed"
+                                                    className="text-base sm:text-lg md:text-lg leading-relaxed text-center"
                                                 >
                                                     {p}
                                                 </p>
                                             ))}
+                                        <div className="w-16 h-[1px] bg-goldBrand mx-auto"></div>
                                     </div>
 
                                     {/* IMAGE */}
