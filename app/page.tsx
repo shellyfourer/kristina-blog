@@ -1,7 +1,26 @@
 
 import Newsletter from "@/components/Newsletter";
+import MediaCard from "@/components/MediaCard";
 
-export default function Home() {
+export default async function Home() {
+    //Fetch latest posts
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+
+    const res = await fetch(`${baseUrl}/api/posts`, {
+        cache: "no-store",
+    });
+
+    const posts = await res.json();
+
+    //sort posts by publish date & show just 3 latest that are published
+    const latest = posts
+        .filter((p: any) => p.status === "published")
+        .sort(
+            (a: any, b: any) =>
+                new Date(b.publish_at).getTime() - new Date(a.publish_at).getTime()
+        )
+        .slice(0, 3);
+
     return (
         <main>
             {/* HERO SECTION */}
@@ -64,14 +83,15 @@ export default function Home() {
 
                     <div className="max-w-md mx-auto space-y-6 lg:w-1/2 lg:mx-0">
                         <h2 className="text-lg sm:text-xl md:text-2xl lg:text-2xl font-medium leading-snug tracking-wide">
-                            Hi, I’m Kristina
+                            Hey, I’m Kristina
                         </h2>
 
                         <div className="w-16 h-[1px] bg-goldBrand mx-auto"></div>
 
                         <p className="text-base sm:text-lg md:text-lg lg:text-lg leading-relaxed text-greenBrand/90">
-                            a London-based women’s health and wellness coach balancing a full-time corporate career while
-                            rebuilding my life from the inside out… one habit, one routine, and one sarcastic comment at a time.
+                            a London-based health & wellness coach and full-time corporate warrior
+                            currently rebuilding my entire life from the inside out… one habit, one
+                            routine, and one sarcastic comment at a time.
                         </p>
 
                         <a href="about" className="btn-brand mt-4 inline-block">
@@ -82,7 +102,7 @@ export default function Home() {
                 </div>
             </section>
             <Newsletter/>
-            {/* LATEST SECTION
+            {/* LATEST SECTION */}
             <section className="bg-beige text-greenBrand font-noto px-6 py-12 sm:py-16 lg:py-20 text-center">
                 <div className="max-w-6xl mx-auto">
 
@@ -91,63 +111,22 @@ export default function Home() {
                     </h2>
                     <div className="w-16 h-[2px] bg-goldBrand mx-auto mt-3 mb-12"></div>
 
-
                     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-16 items-stretch justify-center">
-
-
-                        <div className="rounded-xl overflow-hidden shadow-md w-full max-w-[480px] mx-auto lg:max-w-none aspect-[16/9] md:aspect-[4/5]">
-                            <iframe
-                                className="w-full h-full hover"
-                                src="https://www.youtube.com/embed/5f2iFcPF_9Y?si=F0GiD8vgX9Zn0ldE&controls=0"
-                                title="Latest YouTube video"
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowFullScreen
-                            ></iframe>
-                        </div>
-
-
-                        <div className="rounded-xl overflow-hidden shadow-md w-full max-w-[480px] mx-auto lg:max-w-none aspect-[16/9] md:aspect-[4/5]">
-                            <a
-                                href="https://www.instagram.com/kristinafourer"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="block w-full h-full"
-                            >
-                                <img
-                                    src="/about.png"
-                                    alt="Latest Instagram post"
-                                    className="w-full h-full object-cover hover"
-                                />
-                            </a>
-                        </div>
-
-
-                        <div className="rounded-xl overflow-hidden shadow-md bg-whiteBg2 border border-greenBrand/10 w-full max-w-[480px] mx-auto lg:max-w-none aspect-[16/9] md:aspect-[4/5] flex flex-col justify-between text-left">
-                            <div className="flex flex-col justify-center h-full px-5 py-6 text-center md:text-left">
-                                <h3 className="text-lg sm:text-xl font-semibold text-greenBrand mb-2">
-                                    How I Started Over at 30
-                                </h3>
-                                <p className="text-greenBrand/80 text-sm sm:text-[15px] leading-relaxed mb-6">
-                                    I spent a decade chasing goals without asking why. Here’s how I stopped,
-                                    reset, and began again — one mindful decision at a time.
-                                </p>
-                                <a
-                                    href="#"
-                                    className="inline-block font-medium text-goldBrand hover:text-greenBrand transition-colors duration-300"
-                                >
-                                    READ MORE →
-                                </a>
-                            </div>
-                        </div>
+                        {latest.map((post: any) => (
+                            <MediaCard key={post.slug} post={post} />
+                        ))}
                     </div>
+
                 </div>
             </section>
-            <Newsletter/> */}
+            <Newsletter/>
             {/* CONTACT SECTION */}
             <section className="text-center px-6 py-12 lg:py-20 bg-beige text-greenBrand font-noto">
-                <h2 className="text-2xl font-semibold tracking-wide sm:text-3xl lg:text-4xl">LET'S CONNECT</h2>
-                <div className="w-16 h-[2px] bg-goldBrand mx-auto mt-3 mb-12"></div>
+
+                {/* TITLE */}
+                <h2 className="text-2xl font-semibold tracking-wide sm:text-3xl lg:text-4xl mb-10">
+                    LET'S CONNECT
+                </h2>
                 <div className="flex justify-center gap-8 flex-wrap sm:scale-125 mb:scale-150 lg:scale-200">
                 <a
                     href="https://instagram.com/kristinafourer"
