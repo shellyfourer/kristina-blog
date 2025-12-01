@@ -1,4 +1,6 @@
 import "./globals.css";
+import { Analytics } from '@vercel/analytics/react';
+
 
 export const metadata = {
     title: "Kristina Fourer — The Soft Lock-In",
@@ -53,11 +55,13 @@ export default function RootLayout({
             <meta
                 name="viewport"
                 content="width=device-width, initial-scale=1.0, maximum-scale=1"
+
             />
             <meta
                 name="theme-color"
                 content="#F5F2E8"
             />
+            <link rel="icon" href="/favicon.png" sizes="any" />
         </head>
 
         <body className="font-noto text-greenBrand bg-beige overflow-x-hidden">
@@ -144,6 +148,7 @@ export default function RootLayout({
                 &copy; 2025 Kristina Fourer — All rights reserved.
             </p>
         </footer>
+        <Analytics />
         </body>
         </html>
     );
