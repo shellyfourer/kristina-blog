@@ -3,7 +3,12 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata = {
-    metadataBase: new URL("https://www.kristinafourer.com"),
+
+        metadataBase: new URL("https://www.kristinafourer.com"),
+        themeColor: "#F5F2E8",
+        icons: {
+            icon: "/favicon.png",
+        },
 
     title: {
         default: "Kristina Fourer — The Soft Lock-In",
@@ -11,7 +16,7 @@ export const metadata = {
     },
 
     description:
-        "The Soft Lock-In is a grounded wellness space for women rebuilding their lives through structure, softness, discipline, and intention — balancing hormones, fitness, and modern work.",
+        "The Soft Lock-In is a grounded wellness space for anyone rebuilding their lives through structure, softness, discipline, and intention — balancing hormones, fitness, and modern work.",
 
     keywords: [
         "Kristina Fourer",
@@ -29,7 +34,7 @@ export const metadata = {
     openGraph: {
         title: "Kristina Fourer — The Soft Lock-In",
         description:
-            "A grounded wellness philosophy for women rebuilding through softness, structure, and intentional discipline.",
+            "A grounded wellness philosophy for anyone rebuilding through softness, structure, and intentional discipline.",
         url: "https://www.kristinafourer.com",
         siteName: "The Soft Lock-In",
         images: [
@@ -48,31 +53,21 @@ export const metadata = {
         card: "summary_large_image",
         title: "Kristina Fourer — The Soft Lock-In",
         description:
-            "Soft discipline. Real healing. Grounded routines for women rebuilding with intention.",
+            "Soft discipline. Real healing. Grounded routines for anyone rebuilding with intention.",
         images: ["/about.png"],
     },
 };
+export const viewport = {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+};
 
-export default function RootLayout({
-                                       children,
-                                   }: {
+export default function RootLayout( {children,}: {
     children: React.ReactNode;
 }) {
     return (
         <html lang="en">
-        <head>
-            <meta
-                name="viewport"
-                content="width=device-width, initial-scale=1.0, maximum-scale=1"
-
-            />
-            <meta
-                name="theme-color"
-                content="#F5F2E8"
-            />
-            <link rel="icon" href="/favicon.png" sizes="any" />
-        </head>
-
         <body className="font-noto text-greenBrand bg-beige overflow-x-hidden">
         {/* HEADER */}
         <header className="border border-greenBrand/10 w-full bg-beige text-greenBrand font-noto px-4 sm:px-6 lg:px-10 py-4 sm:py-6 flex items-center justify-between sticky top-0 z-50">
@@ -147,10 +142,8 @@ export default function RootLayout({
                 </a>
             </div>
         </header>
-
         {/* MAIN */}
         <main>{children}</main>
-
         {/* FOOTER */}
         <footer className="border border-greenBrand/10 w-full py-6 px-8 text-center bg-beige text-muted">
             <p className="text-sm">
@@ -158,6 +151,7 @@ export default function RootLayout({
             </p>
         </footer>
         <Analytics />
+        <SpeedInsights />
         </body>
         </html>
     );
