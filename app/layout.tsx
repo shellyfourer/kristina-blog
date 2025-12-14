@@ -5,7 +5,6 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 export const metadata = {
 
         metadataBase: new URL("https://www.kristinafourer.com"),
-        themeColor: "#F5F2E8",
         icons: {
             icon: "/favicon.png",
         },
@@ -61,6 +60,7 @@ export const viewport = {
     width: "device-width",
     initialScale: 1,
     maximumScale: 1,
+    themeColor: "#F5F2E8",
 };
 
 export default function RootLayout( {children,}: {
