@@ -1,45 +1,54 @@
 import "./globals.css";
 import { Analytics } from '@vercel/analytics/react';
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata = {
-    title: "Kristina Fourer — The Soft Lock-In",
+    metadataBase: new URL("https://www.kristinafourer.com"),
+
+    title: {
+        default: "Kristina Fourer — The Soft Lock-In",
+        template: "%s — Kristina Fourer",
+    },
+
     description:
-        "A soft, structured rebuild era for women balancing wellness, hormones, fitness, and corporate life — we follow the plan, not the mood.",
+        "The Soft Lock-In is a grounded wellness space for women rebuilding their lives through structure, softness, discipline, and intention — balancing hormones, fitness, and modern work.",
+
     keywords: [
-        "soft lock-in",
-        "wellness coach",
-        "women's health",
-        "PCOS healing",
+        "Kristina Fourer",
+        "The Soft Lock-In",
+        "women’s wellness",
+        "hormone balance",
+        "PCOS support",
+        "soft discipline",
+        "mental health routines",
         "fitness for women",
         "corporate wellness",
-        "self improvement",
-        "hormone balance",
-        "mental health",
-        "Kristina Fourer",
+        "intentional living",
     ],
+
     openGraph: {
         title: "Kristina Fourer — The Soft Lock-In",
         description:
-            "A grounded wellness space for women rebuilding through softness, structure, and intention.",
-        url: "https://kristinafourer.com",
-        siteName: "The Soft Lock-In — Kristina Fourer",
+            "A grounded wellness philosophy for women rebuilding through softness, structure, and intentional discipline.",
+        url: "https://www.kristinafourer.com",
+        siteName: "The Soft Lock-In",
         images: [
             {
-                url: "/about.png", // YOUR OG IMAGE
+                url: "/about.png",
                 width: 1200,
                 height: 630,
-                alt: "The Soft Lock-In by Kristina Fourer",
+                alt: "The Soft Lock-In — a wellness space by Kristina Fourer",
             },
         ],
         locale: "en_US",
         type: "website",
     },
+
     twitter: {
         card: "summary_large_image",
         title: "Kristina Fourer — The Soft Lock-In",
         description:
-            "Soft discipline, real healing, grounded routines — we follow the plan, not the mood.",
+            "Soft discipline. Real healing. Grounded routines for women rebuilding with intention.",
         images: ["/about.png"],
     },
 };

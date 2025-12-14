@@ -1,4 +1,32 @@
 import Newsletter from "@/components/Newsletter";
+export async function generateMetadata(
+    { params }: { params: { slug: string } }
+) {
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://www.kristinafourer.com";
+
+    const res = await fetch(`${baseUrl}/api/posts/${params.slug}`, {
+        cache: "no-store",
+    });
+
+    if (!res.ok) {
+        return {
+            title: "Post not found — Kristina Fourer",
+            alternates: {
+                canonical: `https://www.kristinafourer.com/blog/${params.slug}`,
+            },
+        };
+    }
+
+    const post = await res.json();
+
+    return {
+        title: `${post.title} — Kristina Fourer`,
+        description: post.preview || undefined,
+        alternates: {
+            canonical: `https://www.kristinafourer.com/blog/${params.slug}`,
+        },
+    };
+}
 
 export default async function BlogPostPage(context: { params: Promise<{ slug: string }> }) {
     const { slug } = await context.params;
