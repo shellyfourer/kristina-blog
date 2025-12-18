@@ -3,7 +3,6 @@ import { MetadataRoute } from "next";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const baseUrl = "https://kristinafourer.com";
 
-    //Fetch blog posts
     const res = await fetch(`${baseUrl}/api/posts`, {
         cache: "no-store",
     });
@@ -12,14 +11,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     const blogUrls = posts.map((post: any) => ({
         url: `${baseUrl}/blog/${post.slug}`,
-        lastModified: post.updated_at || post.created_at,
+        lastModified: new Date(
+            post.updated_at || post.created_at
+        ).toISOString(),
     }));
 
     return [
-        { url: baseUrl, lastModified: new Date() },
-        { url: `${baseUrl}/about`, lastModified: new Date() },
-        { url: `${baseUrl}/contact`, lastModified: new Date() },
-        { url: `${baseUrl}/blog`, lastModified: new Date() },
+        { url: baseUrl, lastModified: new Date().toISOString() },
+        { url: `${baseUrl}/about`, lastModified: new Date().toISOString() },
+        { url: `${baseUrl}/contact`, lastModified: new Date().toISOString() },
+        { url: `${baseUrl}/blog`, lastModified: new Date().toISOString() },
         ...blogUrls,
     ];
 }
