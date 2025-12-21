@@ -65,7 +65,9 @@ export default async function Home() {
                     </div>
                 </div>
             </section>
-            <Newsletter/>
+            <div className="pt-12 lg:pt-20">
+                <Newsletter/>
+            </div>
             {/* ABOUT SECTION */}
             <section className="bg-beige text-greenBrand font-noto px-6 py-12 lg:py-20">
                 <div className="max-w-6xl mx-auto flex flex-col items-center text-center gap-8 lg:flex-row lg:items-center lg:gap-16">

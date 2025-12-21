@@ -8,13 +8,13 @@ export default function Newsletter() {
             {/* Clickable Marquee Box */}
             <section
                 onClick={() => setIsOpen(true)}
-                className="relative overflow-hidden bg-beige border-y border-greenBrand/40 py-5 lg:py-8 cursor-pointer group"
+                className="relative overflow-hidden bg-greenBrand goldBrand border-y border-greenBrand/40 py-5 lg:py-8 cursor-pointer group "
             >
                 {/* Moving text inside the box */}
                 <div
-                    className="flex whitespace-nowrap animate-marquee text-greenBrand font-noto font-semibold tracking-wider text-base sm:text-xl group-hover:text-goldBrand transition-colors duration-300">
+                    className="flex whitespace-nowrap animate-marquee text-goldBrand font-noto font-regular tracking-wider text-base sm:text-xl group-hover:text-goldBrand/50 transition-colors duration-300">
                     {Array(12)
-                        .fill("JOIN THE NEWSLETTER ") /*add more texts*/
+                        .fill("JOIN THE NEWSLETTER HERE") /*add more texts*/
                         .map((text, i) => (
                             <span key={i} className="mx-8">
                                 {text}

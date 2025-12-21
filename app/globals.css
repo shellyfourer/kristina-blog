@@ -6,7 +6,7 @@
     --color-greenBrand: #0F3526;
     --color-goldBrand:  #DAB763;
     --color-muted:      #A5B3AE;
-    --color-beige:   #F1EEE7;
+    --color-beige:   white;
     --gradient-background:   linear-gradient(180deg, #F1EEE7 0%, #FFFFFF 100%);
     --font-noto: "Noto Serif", serif;
 }
@@ -21,7 +21,7 @@
 }
 
 @utility animate-marquee {
-    animation: marquee var(--marquee-speed, 20s) linear infinite;
+    animation: marquee var(--marquee-speed, 30s) linear infinite;
     display: inline-flex;
 }
 
@@ -33,7 +33,7 @@
 
 
 @utility btn-brand {
-    @apply px-6 py-3 rounded-[50px] font-semibold transition-colors duration-300;
+    @apply px-6 py-3 rounded-[10px] font-semibold transition-colors duration-300;
     background: var(--color-goldBrand);
     color: var(--color-greenBrand);
 
@@ -45,4 +45,17 @@
 
 @utility hover {
     @apply transition-transform duration-300 hover:scale-110;
+}
+
+@layer utilities {
+    .btn-menu {
+        @apply
+        py-2
+        tracking-tight
+        hover:text-goldBrand
+        active:text-goldBrand
+        focus-visible:text-goldBrand
+        active:scale-[0.98]
+        transition-colors duration-300 ease-out
+    }
 }
