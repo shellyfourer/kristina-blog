@@ -1,61 +1,58 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
 @theme {
-
-    --color-greenBrand: #0F3526;
-    --color-goldBrand:  #DAB763;
-    --color-muted:      #A5B3AE;
-    --color-beige:   white;
-    --gradient-background:   linear-gradient(180deg, #F1EEE7 0%, #FFFFFF 100%);
-    --font-noto: "Noto Serif", serif;
+  --color-greenBrand: #0f3526;
+  --color-goldBrand: #dab763;
+  --color-muted: #a5b3ae;
+  --color-beige: white;
+  --gradient-background: linear-gradient(180deg, #f1eee7 0%, #ffffff 100%);
+  --font-noto: "Noto Serif", serif;
 }
 
 @keyframes marquee {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-50%);
-    }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 @utility animate-marquee {
-    animation: marquee var(--marquee-speed, 30s) linear infinite;
-    display: inline-flex;
+  animation: marquee var(--marquee-speed, 30s) linear infinite;
+  display: inline-flex;
 }
 
 @media (max-width: 768px) {
-    :root {
-        --marquee-speed: 12s;
-    }
+  :root {
+    --marquee-speed: 12s;
+  }
 }
 
-
 @utility btn-brand {
-    @apply px-6 py-3 rounded-[10px] font-semibold transition-colors duration-300;
-    background: var(--color-goldBrand);
-    color: var(--color-greenBrand);
+  @apply px-6 py-3 rounded-[10px] font-semibold transition-colors duration-300;
+  background: var(--color-goldBrand);
+  color: var(--color-greenBrand);
 
-    &:hover {
-        background: var(--color-greenBrand);
-        color: var(--color-goldBrand);
-    }
+  &:hover {
+    background: var(--color-greenBrand);
+    color: var(--color-goldBrand);
+  }
 }
 
 @utility hover {
-    @apply transition-transform duration-300 hover:scale-110;
+  @apply transition-transform duration-300 hover:scale-110;
 }
 
 @layer utilities {
-    .btn-menu {
-        @apply
-        py-2
+  .btn-menu {
+    @apply py-2
         tracking-tight
         hover:text-goldBrand
         active:text-goldBrand
         focus-visible:text-goldBrand
         active:scale-[0.98]
-        transition-colors duration-300 ease-out
-    }
+        transition-colors duration-300 ease-out;
+  }
 }
