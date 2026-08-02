@@ -1,3 +1,13 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description:
+    "How Kristina Fourer handles personal data, newsletter subscriptions, analytics, and your rights under UK GDPR.",
+  alternates: { canonical: "https://www.kristinafourer.com/privacy" },
+  robots: { index: true, follow: true },
+};
+
 export default function PrivacyPage() {
   return (
     <main className="max-w-3xl mx-auto px-6 py-16 space-y-6 text-sm">

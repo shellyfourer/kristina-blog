@@ -18,6 +18,10 @@ export const metadata = {
   description:
     "The Soft Lock-In is a grounded wellness space for anyone rebuilding their lives through structure, softness, discipline, and intention — balancing hormones, fitness, and modern work.",
 
+  alternates: {
+    canonical: "/",
+  },
+
   keywords: [
     "Kristina Fourer",
     "The Soft Lock-In",
@@ -64,10 +68,35 @@ export const viewport = {
   themeColor: "#F5F2E8",
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "The Soft Lock-In",
+  alternateName: "Kristina Fourer",
+  url: "https://www.kristinafourer.com",
+  description:
+    "A grounded wellness space for rebuilding through softness, structure, and intentional discipline.",
+  author: {
+    "@type": "Person",
+    name: "Kristina Fourer",
+    url: "https://www.kristinafourer.com",
+    sameAs: [
+      "https://instagram.com/kristinafourer",
+      "https://www.youtube.com/@KristinaFourer",
+      "https://www.tiktok.com/@tinnnute",
+      "https://substack.com/@kristinafourer",
+    ],
+  },
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className="font-noto text-greenBrand bg-beige overflow-x-hidden">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {/* HEADER */}
         <Header />
         {/* MAIN */}

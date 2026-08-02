@@ -1,26 +1,82 @@
 import Image from "next/image";
+import type { Metadata } from "next";
 import Newsletter from "@/components/Newsletter";
-import type { ContentBlock } from "@/types/post";
+import type { ContentBlock, Post } from "@/types/post";
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+const SITE_URL = "https://www.kristinafourer.com";
+
+async function getPost(slug: string): Promise<Post | null> {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || SITE_URL;
+  const res = await fetch(`${baseUrl}/api/posts/${slug}`, {
+    cache: "no-store",
+  });
+
+  if (!res.ok) return null;
+  return res.json();
+}
+
+function excerptFromBlocks(blocks: ContentBlock[] | undefined): string {
+  const firstText = blocks?.flatMap((b) => b.text ?? []).find((t) => t?.trim());
+  if (!firstText) return "";
+  return firstText.length > 160 ? `${firstText.slice(0, 157).trimEnd()}…` : firstText;
+}
+
+function absoluteUrl(path: string | undefined): string | undefined {
+  if (!path) return undefined;
+  return path.startsWith("http") ? path : `${SITE_URL}${path.startsWith("/") ? "" : "/"}${path}`;
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
   const { slug } = await params;
+  const post = await getPost(slug);
+  const canonical = `${SITE_URL}/blog/${slug}`;
+
+  if (!post) {
+    return {
+      title: "Post not found",
+      alternates: { canonical },
+      robots: { index: false, follow: true },
+    };
+  }
+
+  const description =
+    excerptFromBlocks(post.content_blocks) ||
+    "The Soft Lock-In — grounded wellness writing by Kristina Fourer.";
+  const image = post.cover_image || "/about.png";
 
   return {
-    title: "Kristina Fourer — The Soft Lock-In",
-    alternates: {
-      canonical: `https://www.kristinafourer.com/blog/${slug}`,
+    title: post.title,
+    description,
+    alternates: { canonical },
+    openGraph: {
+      type: "article",
+      title: post.title,
+      description,
+      url: canonical,
+      siteName: "The Soft Lock-In",
+      images: [{ url: image, alt: post.title }],
+      publishedTime: post.publish_at ?? undefined,
+      modifiedTime: post.updated_at ?? post.publish_at ?? undefined,
+      authors: ["Kristina Fourer"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description,
+      images: [image],
     },
   };
 }
 export default async function BlogPostPage(context: { params: Promise<{ slug: string }> }) {
   const { slug } = await context.params;
 
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-  const res = await fetch(`${baseUrl}/api/posts/${slug}`, {
-    cache: "no-store",
-  });
+  const post = await getPost(slug);
 
-  if (!res.ok) {
+  if (!post) {
     return (
       <main className="px-6 py-12 bg-beige text-greenBrand font-noto">
         <h1 className="text-center text-2xl font-medium">Post not found.</h1>
@@ -28,10 +84,32 @@ export default async function BlogPostPage(context: { params: Promise<{ slug: st
     );
   }
 
-  const post = await res.json();
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: excerptFromBlocks(post.content_blocks),
+    image: absoluteUrl(post.cover_image),
+    datePublished: post.publish_at ?? undefined,
+    dateModified: post.updated_at ?? post.publish_at ?? undefined,
+    author: {
+      "@type": "Person",
+      name: "Kristina Fourer",
+      url: SITE_URL,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "The Soft Lock-In",
+    },
+    mainEntityOfPage: `${SITE_URL}/blog/${slug}`,
+  };
 
   return (
     <main className="bg-beige text-greenBrand font-noto">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Newsletter />
 
       {/* TITLE */}

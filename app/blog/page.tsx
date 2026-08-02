@@ -2,8 +2,18 @@ import MediaCard from "@/components/MediaCard";
 import Newsletter from "@/components/Newsletter";
 import type { Post } from "@/types/post";
 export const metadata = {
+  title: "Blog",
+  description:
+    "Essays and grounded wellness notes from Kristina Fourer — soft discipline, hormone-supportive routines, fitness, and rebuilding your life with intention.",
   alternates: {
     canonical: "https://www.kristinafourer.com/blog",
+  },
+  openGraph: {
+    title: "Blog — The Soft Lock-In",
+    description:
+      "Essays and grounded wellness notes on soft discipline, routines, and intentional living.",
+    url: "https://www.kristinafourer.com/blog",
+    type: "website",
   },
 };
 

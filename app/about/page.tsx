@@ -1,5 +1,20 @@
 import Image from "next/image";
+import type { Metadata } from "next";
 import Newsletter from "@/components/Newsletter";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Kristina Fourer is a London-based health & wellness coach rebuilding her life through soft discipline, structure, and intention — the story behind The Soft Lock-In.",
+  alternates: { canonical: "https://www.kristinafourer.com/about" },
+  openGraph: {
+    title: "About Kristina Fourer",
+    description:
+      "The story behind The Soft Lock-In — soft discipline, structure, and intentional living.",
+    url: "https://www.kristinafourer.com/about",
+    type: "profile",
+  },
+};
 
 export default function AboutPage() {
   return (

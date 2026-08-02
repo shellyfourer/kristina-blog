@@ -2,9 +2,10 @@ import { MetadataRoute } from "next";
 import type { Post } from "@/types/post";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://kristinafourer.com";
+  const baseUrl = "https://www.kristinafourer.com";
 
-  const res = await fetch(`${baseUrl}/api/posts`, {
+  const fetchUrl = process.env.NEXT_PUBLIC_BASE_URL || baseUrl;
+  const res = await fetch(`${fetchUrl}/api/posts`, {
     cache: "no-store",
   });
 
