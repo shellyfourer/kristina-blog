@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Newsletter from "@/components/Newsletter";
 import MediaCard from "@/components/MediaCard";
 
@@ -23,10 +24,13 @@ export default async function Home() {
       <section className="relative w-full overflow-hidden font-noto h-screen">
         <div className="flex flex-col lg:flex-row h-full relative">
           <div className="relative w-full lg:w-1/2 h-[60vh] lg:h-full">
-            <img
+            <Image
               src="/hero-image.png"
               alt="Kristina by the window at night"
               aria-hidden="true"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="absolute inset-0 w-full h-full object-cover z-0"
             />
 
@@ -68,9 +72,11 @@ export default async function Home() {
       <section className="bg-beige text-greenBrand font-noto px-6 py-12 lg:py-20">
         <div className="max-w-6xl mx-auto flex flex-col items-center text-center gap-8 lg:flex-row lg:items-center lg:gap-16">
           <div className="relative overflow-hidden rounded-xl shadow-sm w-[85%] h-[300px] mx-auto lg:w-1/2 lg:h-[500px]">
-            <img
+            <Image
               src="/about.png"
               alt="Kristina selfie at home"
+              fill
+              sizes="(max-width: 1024px) 85vw, 50vw"
               className="w-full h-full object-cover object-[center_30%] rounded-xl"
             />
             <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-beige to-transparent"></div>
@@ -124,7 +130,13 @@ export default async function Home() {
             aria-label="Instagram"
             className="hover"
           >
-            <img src="/instagram.svg" alt="Instagram" className="w-7 h-7" />
+            <Image
+              src="/instagram.svg"
+              alt="Instagram"
+              width={28}
+              height={28}
+              className="w-7 h-7"
+            />
           </a>
 
           <a
@@ -134,7 +146,7 @@ export default async function Home() {
             aria-label="YouTube"
             className="hover"
           >
-            <img src="/youtube.svg" alt="YouTube" className="w-7 h-7" />
+            <Image src="/youtube.svg" alt="YouTube" width={28} height={28} className="w-7 h-7" />
           </a>
 
           <a
@@ -144,7 +156,7 @@ export default async function Home() {
             aria-label="TikTok"
             className="hover"
           >
-            <img src="/tik-tok.svg" alt="TikTok" className="w-7 h-7" />
+            <Image src="/tik-tok.svg" alt="TikTok" width={28} height={28} className="w-7 h-7" />
           </a>
 
           <a
@@ -154,7 +166,7 @@ export default async function Home() {
             aria-label="Substack"
             className="hover"
           >
-            <img src="/substack.svg" alt="Substack" className="w-7 h-7" />
+            <Image src="/substack.svg" alt="Substack" width={28} height={28} className="w-7 h-7" />
           </a>
 
           <a
@@ -164,7 +176,7 @@ export default async function Home() {
             aria-label="Snapchat"
             className="hover"
           >
-            <img src="/snapchat.svg" alt="Snapchat" className="w-7 h-7" />
+            <Image src="/snapchat.svg" alt="Snapchat" width={28} height={28} className="w-7 h-7" />
           </a>
         </div>
       </section>

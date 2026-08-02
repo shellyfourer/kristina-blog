@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Newsletter from "@/components/Newsletter";
 
 export default function AboutPage() {
@@ -33,9 +34,11 @@ export default function AboutPage() {
 
           {/* IMAGE RIGHT */}
           <div className="relative overflow-hidden rounded-xl shadow-sm w-[85%] h-[300px] mx-auto lg:w-1/2 lg:h-[500px]">
-            <img
+            <Image
               src="/about1.png"
               alt="Kristina"
+              fill
+              sizes="(max-width: 1024px) 85vw, 50vw"
               className="w-full h-full object-cover object-[center_30%]"
             />
             <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-beige to-transparent"></div>
@@ -68,7 +71,13 @@ export default function AboutPage() {
 
           {/* IMAGE LEFT */}
           <div className="relative overflow-hidden rounded-xl shadow-sm w-[85%] h-[300px] mx-auto lg:w-1/2 lg:h-[500px]">
-            <img src="/about2.png" alt="Kristina" className="w-full h-full object-cover" />
+            <Image
+              src="/about2.png"
+              alt="Kristina"
+              fill
+              sizes="(max-width: 1024px) 85vw, 50vw"
+              className="w-full h-full object-cover"
+            />
             <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-beige to-transparent"></div>
           </div>
         </div>
@@ -103,7 +112,13 @@ export default function AboutPage() {
 
           {/* IMAGE RIGHT */}
           <div className="relative overflow-hidden rounded-xl shadow-sm w-[85%] h-[300px] mx-auto lg:w-1/2 lg:h-[500px]">
-            <img src="/about3.png" alt="Kristina" className="w-full h-full object-cover" />
+            <Image
+              src="/about3.png"
+              alt="Kristina"
+              fill
+              sizes="(max-width: 1024px) 85vw, 50vw"
+              className="w-full h-full object-cover"
+            />
             <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-beige to-transparent"></div>
           </div>
         </div>

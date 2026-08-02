@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 
 interface MediaCardProps {
@@ -20,11 +21,13 @@ export default function MediaCard({ post }: MediaCardProps) {
       className="block bg-beige rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 group"
     >
       {/* Image */}
-      <div className="w-full h-56 overflow-hidden">
-        <img
+      <div className="relative w-full h-56 overflow-hidden">
+        <Image
           src={cover_image}
           alt={title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-cover group-hover:scale-105 transition-transform duration-300"
         />
       </div>
 

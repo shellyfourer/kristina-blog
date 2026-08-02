@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Newsletter from "@/components/Newsletter";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
@@ -114,7 +115,13 @@ export default async function BlogPostPage(context: { params: Promise<{ slug: st
                 {/* IMAGE */}
                 {block.image && (
                   <div className="lg:w-1/2 relative overflow-hidden rounded-xl shadow-sm h-[280px] sm:h-[360px] lg:h-[460px]">
-                    <img src={block.image} alt="" className="w-full h-full object-cover" />
+                    <Image
+                      src={block.image}
+                      alt=""
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="w-full h-full object-cover"
+                    />
                     <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-beige to-transparent" />
                   </div>
                 )}
