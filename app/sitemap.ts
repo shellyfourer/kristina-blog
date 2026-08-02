@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import type { Post } from "@/types/post";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://kristinafourer.com";
@@ -9,10 +10,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const posts = await res.json();
 
-  const blogUrls = posts.map((post: any) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.updated_at || post.created_at).toISOString(),
-  }));
+  const blogUrls = posts.map((post: Post) => {
+    const timestamp = post.updated_at ?? post.created_at;
+    const date = timestamp ? new Date(timestamp) : new Date();
+    const lastModified = isNaN(date.getTime()) ? new Date() : date;
+
+    return {
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: lastModified.toISOString(),
+    };
+  });
 
   return [
     { url: baseUrl, lastModified: new Date().toISOString() },

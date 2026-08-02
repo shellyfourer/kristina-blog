@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Newsletter from "@/components/Newsletter";
 import MediaCard from "@/components/MediaCard";
+import type { Post } from "@/types/post";
 
 export default async function Home() {
   //Fetch latest posts
@@ -14,8 +15,11 @@ export default async function Home() {
 
   //sort posts by publish date & show just 3 latest that are published
   const latest = posts
-    .filter((p: any) => p.status === "published")
-    .sort((a: any, b: any) => new Date(b.publish_at).getTime() - new Date(a.publish_at).getTime())
+    .filter((p: Post) => p.status === "published")
+    .sort(
+      (a: Post, b: Post) =>
+        new Date(b.publish_at ?? 0).getTime() - new Date(a.publish_at ?? 0).getTime(),
+    )
     .slice(0, 3);
 
   return (
@@ -109,7 +113,7 @@ export default async function Home() {
           <div className="w-16 h-[2px] bg-goldBrand mx-auto mt-3 mb-12"></div>
 
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-16 items-stretch justify-center">
-            {latest.map((post: any) => (
+            {latest.map((post: Post) => (
               <MediaCard key={post.slug} post={post} />
             ))}
           </div>
@@ -120,7 +124,7 @@ export default async function Home() {
       <section className="text-center px-6 py-12 lg:py-20 bg-beige text-greenBrand font-noto">
         {/* TITLE */}
         <h2 className="text-2xl font-semibold tracking-wide sm:text-3xl lg:text-4xl mb-10">
-          LET'S CONNECT
+          LET&apos;S CONNECT
         </h2>
         <div className="flex justify-center gap-8 flex-wrap sm:scale-125 mb:scale-150 lg:scale-200">
           <a

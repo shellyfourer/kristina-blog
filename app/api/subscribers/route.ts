@@ -1,4 +1,3 @@
-import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
 const supabase = createClient(
@@ -6,7 +5,7 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY!,
 );
 
-export async function GET(request: Request) {
+export async function GET() {
   const { data } = await supabase.from("subscribers").select("email, name");
   return Response.json(data);
 }

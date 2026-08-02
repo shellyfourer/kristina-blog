@@ -15,6 +15,17 @@ export default function Header() {
   const [results, setResults] = useState<SearchResult[]>([]);
   const pathname = usePathname();
 
+  // Close menu/search on navigation by adjusting state during render
+  // (see https://react.dev/learn/you-might-not-need-an-effect)
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname);
+    setMenuOpen(false);
+    setSearchOpen(false);
+    setQuery("");
+    setResults([]);
+  }
+
   // Scroll lock when the menu overlay is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -22,21 +33,14 @@ export default function Header() {
       document.body.style.overflow = "";
     };
   }, [menuOpen]);
-  // Close menu/search on navigation
-  useEffect(() => {
-    setMenuOpen(false);
-    setSearchOpen(false);
-    setQuery("");
-    setResults([]);
-  }, [pathname]);
   // Live search suggestions (debounced)
   useEffect(() => {
-    if (!searchOpen || query.trim().length < 2) {
-      setResults([]);
-      return;
-    }
-
     const timeout = setTimeout(async () => {
+      if (!searchOpen || query.trim().length < 2) {
+        setResults([]);
+        return;
+      }
+
       try {
         const res = await fetch(`/api/search?q=${encodeURIComponent(query.trim())}`);
         const data = await res.json();

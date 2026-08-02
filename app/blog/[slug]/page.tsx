@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Newsletter from "@/components/Newsletter";
+import type { ContentBlock } from "@/types/post";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -52,7 +53,7 @@ export default async function BlogPostPage(context: { params: Promise<{ slug: st
 
       {/* CONTENT BLOCKS */}
       {Array.isArray(post.content_blocks) &&
-        post.content_blocks.map((block: any, index: number) => {
+        post.content_blocks.map((block: ContentBlock, index: number) => {
           /* PURE TEXT BLOCK*/
           if (block.type === "center") {
             return (

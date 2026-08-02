@@ -7,7 +7,7 @@ type MenuOverlayProps = {
   onClose: () => void;
 };
 
-export default function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
+export default function MenuOverlay({ isOpen }: MenuOverlayProps) {
   if (!isOpen) return null;
 
   return (

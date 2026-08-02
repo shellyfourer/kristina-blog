@@ -13,7 +13,7 @@ interface MediaCardProps {
 }
 
 export default function MediaCard({ post }: MediaCardProps) {
-  const { slug, title, cover_image, publish_at } = post;
+  const { title, cover_image, publish_at } = post;
 
   return (
     <Link

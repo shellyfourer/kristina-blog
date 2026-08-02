@@ -7,7 +7,7 @@ export default function ContactPage() {
         <div className="w-16 h-[1px] bg-goldBrand mx-auto"></div>
 
         <p className="text-greenBrand/70 text-base sm:text-lg max-w-xl mx-auto">
-          Whether you have a question, or just want to say hi — I'm here.
+          Whether you have a question, or just want to say hi — I&apos;m here.
         </p>
       </section>
 

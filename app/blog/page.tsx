@@ -1,5 +1,6 @@
 import MediaCard from "@/components/MediaCard";
 import Newsletter from "@/components/Newsletter";
+import type { Post } from "@/types/post";
 export const metadata = {
   alternates: {
     canonical: "https://www.kristinafourer.com/blog",
@@ -20,7 +21,7 @@ export default async function BlogPage() {
       <Newsletter />
       <div className="px-6 py-12  max-w-6xl mx-auto grid gap-10 sm:grid-cols-2 lg:grid-cols-3 text-center">
         {Array.isArray(posts) && posts.length > 0 ? (
-          posts.map((post: any) => <MediaCard key={post.post_id} post={post} />)
+          posts.map((post: Post) => <MediaCard key={post.post_id} post={post} />)
         ) : (
           <p>No posts found</p>
         )}
